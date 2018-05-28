@@ -61,12 +61,12 @@
                 if (!_isLocked) {
                     _lastOrientation = [UIApplication sharedApplication].statusBarOrientation;
                 }
-                UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-                if(orientationMask == 8  || (orientationMask == 12  && !UIDeviceOrientationIsLandscape(deviceOrientation))) {
+                UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
+                if(orientationMask == 8  || (orientationMask == 12  && !UIInterfaceOrientationIsLandscape(deviceOrientation))) {
                     value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
                 } else if (orientationMask == 4){
                     value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
-                } else if (orientationMask == 1 || (orientationMask == 3 && !UIDeviceOrientationIsPortrait(deviceOrientation))) {
+                } else if (orientationMask == 1 || (orientationMask == 3 && !UIInterfaceOrientationIsPortrait(deviceOrientation))) {
                     value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
                 } else if (orientationMask == 2) {
                     value = [NSNumber numberWithInt:UIInterfaceOrientationPortraitUpsideDown];
